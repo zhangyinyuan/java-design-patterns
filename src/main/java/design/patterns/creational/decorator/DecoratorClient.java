@@ -1,6 +1,6 @@
 package design.patterns.creational.decorator;
 
-public class DecoratorDemo {
+public class DecoratorClient {
     public static void main(String[] args) {
         Pizza myPizza = new BasicPizza();
         // 输出: 基础披萨
