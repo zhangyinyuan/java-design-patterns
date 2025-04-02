@@ -42,3 +42,43 @@ ToppingDecorator "1" *--> "pizza 1" Pizza
 
 ---
 
+## 行为型设计模式
+
+### 观察者设计模式 Observer
+
+```mermaid
+classDiagram
+direction BT
+class CoffeeClient {
+  + main(String[]) void
+}
+class CoffeeObserver {
+<<Interface>>
+  + update(String) void
+}
+class PhoneApp {
+  + update(String) void
+}
+class SmartCoffeeMachine {
+  + addObserver(CoffeeObserver) void
+  - notifyObservers() void
+  + outOfBeans() void
+  + brewCoffee() void
+}
+class VoiceAssistant {
+  + update(String) void
+}
+
+CoffeeClient  ..>  PhoneApp : «create»
+CoffeeClient  ..>  SmartCoffeeMachine : «create»
+CoffeeClient  ..>  VoiceAssistant : «create»
+PhoneApp  ..>  CoffeeObserver 
+SmartCoffeeMachine "1" *--> "observers *" CoffeeObserver 
+VoiceAssistant  ..>  CoffeeObserver 
+
+```
+
+---
+
+
+
